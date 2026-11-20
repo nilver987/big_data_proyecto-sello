@@ -1,38 +1,90 @@
-# Proyecto Sello · Heladas en Juliaca
+---
+hide:
+  - navigation
+  - toc
+---
 
-**Equipo 10 · BIG IMPACT** · Big Data, UPeU 2026-2 · Autor: Nilver Salcca Aquino
+<div class="hero" markdown>
 
-Pipeline Big Data con arquitectura **Lambda** que anticipa las heladas en Juliaca (altiplano, más de 3 800 msnm) con datos reales de WeatherAPI: una capa **batch** (histórico 2010 – 01-oct-2026, Unidad I) y una capa de **tiempo real** (Kafka → Spark Structured Streaming → Prometheus/Grafana, Unidad II).
+# :material-snowflake: Heladas en Juliaca
 
-## Preguntas del proyecto
+Pipeline Big Data con arquitectura **Lambda** que anticipa las heladas del altiplano (más de 3 800 msnm) con datos reales de WeatherAPI: capa **batch** con el histórico 2010 – 01-oct-2026 y capa de **tiempo real** con Kafka, Spark y Grafana.
 
-!!! question "Pregunta general"
+<p class="meta">Proyecto Sello · Equipo 10 BIG IMPACT · Big Data UPeU 2026-2 · Nilver Salcca Aquino</p>
+
+</div>
+
+## Las preguntas
+
+=== "Pregunta general"
+
     ¿Cómo anticipar las heladas (temperatura ≤ 0 °C) en Juliaca para apoyar decisiones agrícolas y de gestión de riesgo local?
 
-!!! question "Pregunta de la Unidad I (batch)"
+    *Helada = temperatura mínima ≤ 0 °C (criterio meteorológico SENAMHI).*
+
+=== "Unidad I · batch"
+
     ¿En qué meses (2010 – 01-oct-2026) la mínima diaria es ≤ 0 °C en más del 30 % de los días, y qué tan bien se puede predecir la temperatura mínima de la noche con lo que se mide a las 18:00?
 
-!!! question "Pregunta de la Unidad II (streaming)"
+=== "Unidad II · tiempo real"
+
     ¿Se puede predecir la temperatura de Juliaca con 1 hora de anticipación y avisar si habrá helada (≤ 0 °C), mejor que simplemente asumir que "la próxima hora será igual que ahora"?
 
-*Definición de helada:* temperatura mínima ≤ 0 °C (criterio meteorológico SENAMHI).
+## Resultados en cifras
 
-## Resultados principales
+<div class="grid cards" markdown>
 
-| Tema | Resultado |
-|---|---|
-| Datos batch (Gold) | 146 832 lecturas horarias, 2010-01-01 → 2026-10-01 |
-| U1 · mejor modelo (Random Forest) | RMSE 1.077 °C, R² 0.801; con margen de aviso de 0.75 °C detecta **87.5 %** de las heladas (118 falsas alarmas en 1 175 noches) |
-| U2 · modelo a 1 h (Random Forest) | RMSE **0.971 °C** frente a 1.499 °C de la persistencia (**−35 %**); F1 de la alerta 0.782 frente a 0.677 |
-| U2 · en vivo | Predicciones llegando por Kafka y publicadas en Grafana cada micro-lote; contador de predicciones que sube en Prometheus |
-| U2 · horizonte útil | Mejora real sobre la persistencia y la climatología hasta **3-4 h**; alerta de helada con F1 ≥ 0.6 hasta **3 h** |
+- :material-database: **146 832**
+
+    lecturas horarias en el Gold (2010-01-01 → 2026-10-01)
+
+- :material-chart-line: **−35 %**
+
+    de error (RMSE 0.971 frente a 1.499 °C) del modelo a 1 h frente a la persistencia
+
+- :material-bell-alert: **87.5 %**
+
+    de las heladas detectadas en U1 con margen de aviso de 0.75 °C
+
+- :material-clock-fast: **≈ 6 s**
+
+    desde que una lectura se publica en Kafka hasta que tiene predicción
+
+- :material-timer-sand: **3 – 4 h**
+
+    de horizonte con ventaja real sobre la persistencia y la climatología
+
+- :material-currency-usd: **US$ 91.16 / mes**
+
+    costo estimado de operar el streaming (3 instancias + almacenamiento)
+
+</div>
 
 !!! warning "Hallazgo honesto"
-    En las primeras **7 horas medidas en vivo** (una sola noche cálida) la persistencia tuvo menos error que el modelo (MAE 0.886 °C frente a 1.217 °C). Es una muestra muy corta, pero muestra que el error real hay que medirlo en producción y no solo en la prueba histórica. Ver [S11](unidad2/bi-ml-tablero.md).
+    En las primeras **7 horas medidas en vivo** (una sola noche cálida) la persistencia tuvo menos error que el modelo (MAE 0.886 °C frente a 1.217 °C). La muestra es muy corta, pero muestra que el error real debe medirse en producción y no solo en la prueba histórica. Ver [S11](unidad2/bi-ml-tablero.md#auditoria-del-error-en-produccion).
 
-## Cómo navegar
+## Dónde está cada cosa
 
-- **[Dominio y arquitectura](proyecto/arquitectura.md):** por qué Lambda, componentes y flujo de datos.
-- **[Unidad I](proyecto/unidad1.md):** ETL batch, calidad, particionamiento y modelo.
-- **[Unidad II](unidad2/index.md):** ingesta, streaming, observabilidad, series de tiempo, tablero BI y horizonte útil.
-- **[Sustentación](sustentacion.md):** rúbrica contra evidencia, guion de demo y respuestas a las preguntas del docente.
+<div class="grid cards" markdown>
+
+- :material-sitemap: **[Dominio y arquitectura](proyecto/arquitectura.md)**
+
+    Por qué Lambda, componentes y flujo de datos.
+
+- :material-database-cog: **[Unidad I](proyecto/unidad1.md)**
+
+    ETL batch, calidad, particionamiento y modelo de la mínima nocturna.
+
+- :material-transit-connection-variant: **[Unidad II](unidad2/index.md)**
+
+    Ingesta, streaming, observabilidad, series de tiempo, tablero BI y horizonte útil.
+
+- :material-image-multiple: **[Evidencias](evidencias.md)**
+
+    Capturas con reloj y perfil: tablero, Prometheus, Pushgateway y auditoría.
+
+- :material-presentation: **[Sustentación](sustentacion.md)**
+
+    Guion de la demo, prueba en vivo y respuestas a las preguntas del docente.
+
+</div>

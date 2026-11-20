@@ -28,6 +28,8 @@ Notebook: `pyspark/sesiones/u2/s11b-multihorizonte/11b_multihorizonte.ipynb`.
 | 11 | 8.478 | 1.844 | 1.838 | 0.000 | 0.178 | 0.000 |
 | 12 | 8.519 | 1.844 | 1.867 | 0.000 | 0.178 | 0.000 |
 
+![Persistencia, climatología y RandomForest por horizonte](../img/multi-comparacion.png)
+
 ## Conclusión
 
 | Horizonte | Temperatura | Alerta de helada |

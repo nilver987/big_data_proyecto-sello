@@ -1,9 +1,13 @@
-name: Deploy MkDocs to GitHub Pages
+name: Publicar sitio MkDocs (Proyecto Sello)
 
 on:
   push:
     branches:
       - main
+    paths:
+      - "sitio-proyecto/**"
+      - ".github/workflows/deploy.yml"
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -13,19 +17,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Descargar el repositorio
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Set up Python
+      - name: Instalar Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
 
-      - name: Install dependencies
-        run: |
-          pip install mkdocs mkdocs-material pymdown-extensions
+      - name: Instalar dependencias
+        run: pip install "mkdocs==1.6.1" "mkdocs-material==9.7.7" "pymdown-extensions==12.3"
 
-      - name: Deploy to GitHub Pages
-        run: mkdocs gh-deploy --force
+      - name: Publicar en GitHub Pages
+        run: mkdocs gh-deploy --force -f sitio-proyecto/mkdocs.yml

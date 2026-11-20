@@ -32,8 +32,16 @@ theme:
     - content.code.copy
     - content.tabs.link
 
+extra_css:
+  - stylesheets/extra.css
+
 markdown_extensions:
   - admonition
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.details
   - pymdownx.superfences:
       custom_fences:
@@ -63,4 +71,5 @@ nav:
       - "S10 · Series de tiempo": unidad2/series-tiempo.md
       - "S11 · BI/ML y tablero": unidad2/bi-ml-tablero.md
       - "S11b · ¿Hasta cuántas horas?": unidad2/multihorizonte.md
+  - Evidencias: evidencias.md
   - Sustentación: sustentacion.md

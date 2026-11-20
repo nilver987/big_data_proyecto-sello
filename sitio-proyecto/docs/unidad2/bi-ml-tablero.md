@@ -38,6 +38,8 @@ Carpeta *Proyecto Sello U2* en Grafana. Arriba, las tres preguntas del proyecto;
 | F | ¿Hasta cuántas horas se puede predecir? | RMSE y F1 por horizonte ([S11b](multihorizonte.md)) |
 | E | ¿Cómo está la infraestructura Kafka? | Paneles de S9 (brokers, lag, throughput) |
 
+![Tablero S11, fila A](../img/tablero-fila-a.png)
+
 El tablero junta en **una sola pantalla** un panel batch (estático: histórico, métricas de prueba) y uno streaming (en vivo: predicción, contador), que es lo que pide el criterio 6.
 
 ## Auditoría del error en producción
@@ -51,3 +53,7 @@ Se juntaron las predicciones guardadas por S10 y S11, se quitaron las lecturas r
 | Sesgo medio del modelo | −0.191 |
 
 **Lectura honesta.** En la prueba histórica (29 377 horas) el RandomForest gana (0.730 frente a 1.142); en estas 7 horas de una sola noche cálida y nublada perdió. El modelo aprendió que de madrugada la temperatura baja y esa noche no ocurrió; a las 06:00 la temperatura cayó 2.6 °C de golpe y ninguno de los dos lo anticipó. **No es concluyente** (muestra muy corta y valores consecutivos parecidos), pero demuestra que el error medido en producción puede diferir del de la prueba, y por eso el sistema mide su error en vivo. El MAE en vivo del tablero se publica con estos valores calculados, no con valores escritos a mano.
+
+![Auditoría por hora](../img/auditoria-por-hora.png)
+
+Más capturas en [Evidencias](../evidencias.md).
