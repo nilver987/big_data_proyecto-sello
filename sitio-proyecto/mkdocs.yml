@@ -1,0 +1,66 @@
+site_name: Proyecto Sello · Heladas en Juliaca
+site_description: Pipeline Big Data (arquitectura Lambda) para anticipar heladas en Juliaca. Equipo 10 BIG IMPACT, Big Data UPeU 2026-2.
+site_author: Salcca Aquino, Nilver
+repo_url: https://github.com/nilver987/big_data_proyecto-sello
+repo_name: nilver987/big_data_proyecto-sello
+docs_dir: docs
+
+theme:
+  name: material
+  language: es
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: Cambiar a modo oscuro
+    - scheme: slate
+      primary: indigo
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Cambiar a modo claro
+  icon:
+    logo: material/snowflake
+    repo: fontawesome/brands/github
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - content.code.copy
+    - content.tabs.link
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - tables
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+      toc_depth: 3
+
+plugins:
+  - search
+
+nav:
+  - Inicio: index.md
+  - Proyecto:
+      - Dominio y arquitectura: proyecto/arquitectura.md
+      - Unidad I (batch): proyecto/unidad1.md
+  - Unidad II:
+      - Resumen y rúbrica: unidad2/index.md
+      - "S6-S7 · Ingesta con Kafka": unidad2/ingesta-kafka.md
+      - "S8 · Streaming con Spark": unidad2/streaming-spark.md
+      - "S9 · Observabilidad y costos": unidad2/observabilidad-costos.md
+      - "S10 · Series de tiempo": unidad2/series-tiempo.md
+      - "S11 · BI/ML y tablero": unidad2/bi-ml-tablero.md
+      - "S11b · ¿Hasta cuántas horas?": unidad2/multihorizonte.md
+  - Sustentación: sustentacion.md
