@@ -13,7 +13,7 @@
 <tr><td>Integrante</td><td>Salcca Aquino, Nilver</td></tr>
 <tr><td>Repositorio</td><td><a href="https://github.com/nilver987/big_data_proyecto-sello">github.com/nilver987/big_data_proyecto-sello</a></td></tr>
 <tr><td>Fuente de datos</td><td>WeatherAPI · lecturas reales de Juliaca (histórico 2010 – 01-oct-2026 y lectura actual cada 15 min)</td></tr>
-<tr><td>Versión</td><td>v2 — Unidades I y II</td></tr>
+<tr><td>Versión</td><td>v3 — Unidades I, II y III (Producto Final)</td></tr>
 </table>
 
 ## Resumen del proyecto
@@ -47,3 +47,4 @@ Juliaca, en el altiplano andino (>3 800 msnm), está expuesta a heladas nocturna
 - **[Alcance](alcance.md)** — qué sí y qué no cubre el proyecto
 - **[Resultados técnicos](resultados/heladas/01_heladas_nilver.md)** — Unidad I (ETL batch y modelo)
 - **[Unidad 2](unidad2/index.md)** — pipeline en tiempo real, de Kafka a Grafana
+- **[Unidad 3](unidad3/index.md)** — Producto Final: integración, DataOps, hardening y demo

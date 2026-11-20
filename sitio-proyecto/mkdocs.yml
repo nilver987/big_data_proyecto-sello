@@ -79,3 +79,9 @@ nav:
       - "9. ¿Hasta cuántas horas?": unidad2/multihorizonte.md
       - "10. Hallazgos y reflexión": unidad2/hallazgos.md
       - "11. Sustentación": unidad2/sustentacion.md
+  - Unidad 3:
+      - Resumen: unidad3/index.md
+      - "1. Instalación y ejecución": unidad3/ejecucion.md
+      - "2. Integración y DataOps": unidad3/integracion-dataops.md
+      - "3. Hardening y revisión técnica": unidad3/hardening.md
+      - "4. Sustentación y trazabilidad": unidad3/sustentacion.md
