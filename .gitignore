@@ -1,0 +1,48 @@
+# Datasets de origen (grandes, se copian/descargan por fuera, no se versionan)
+pyspark/sesiones/*/data/
+pyspark/sesiones/*/data_backup*/
+
+# Salidas generadas al correr los notebooks (Parquet/CSV/JSON escritos por cada sesión)
+pyspark/sesiones/*/artifacts/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Carpeta de trabajo/pruebas personal, no es material de la sesión
+pyspark/sesiones/env/
+
+# Trash del contenedor (aparece si se borra un archivo desde dentro de Docker)
+.Trash-0/
+
+# Python
+__pycache__/
+*.pyc
+
+# SO
+.DS_Store
+
+# Artefactos generados en sesiones (Parquet, checkpoints, modelos)
+pyspark/sesiones/*/*/artifacts/
+
+# Secretos (nunca subir)
+.env
+*.env
+**/.env
+*.pem
+*.key
+
+# Temporales de Jupyter
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+
+# Datos generados y pesados
+pyspark/sesiones/*/*/artifacts/
+pyspark/sesiones/*/artifacts/
+*.parquet
+*.crc
+**/chk_*/
+
+# Volúmenes y logs de Docker / Kafka
+*.log
+**/kafka-data/
+**/data/
