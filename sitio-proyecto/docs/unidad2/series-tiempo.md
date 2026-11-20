@@ -1,4 +1,4 @@
-# S10 · Series de tiempo e inferencia en streaming
+# 8. Series de tiempo e inferencia en streaming
 
 Notebook: `pyspark/sesiones/u2/s10-series-tiempo-inferencia-streaming/10_series_tiempo_inferencia_streaming.ipynb`.
 

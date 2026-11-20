@@ -1,4 +1,4 @@
-# S8 · Streaming con Spark Structured Streaming
+# 3. Streaming con Spark Structured Streaming
 
 Notebook: `pyspark/sesiones/u2/s08-streaming-estructurado/`. Lee `heladas-eventos` en modo streaming con el conector `spark-sql-kafka-0-10`, parsea el JSON con esquema explícito y aplica ventanas, watermark, checkpoint, deduplicación y trigger.
 

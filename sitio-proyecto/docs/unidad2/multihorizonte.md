@@ -1,4 +1,4 @@
-# S11b · ¿Hasta cuántas horas se puede predecir?
+# 9. ¿Hasta cuántas horas se puede predecir?
 
 Extensión de S10: se entrena un RandomForest por horizonte `h = 1…12` (temperatura `h` horas adelante, con `lead()`) y se compara contra dos referencias.
 
@@ -46,4 +46,4 @@ Con las variables que llegan por Kafka (temperatura, punto de rocío, humedad, n
 !!! note "Observación no investigada"
     El F1 del RandomForest baja en h = 5 (0.260) y se recupera en h = 6-8. Probablemente depende de la hora del día de la hora objetivo, pero no se comprobó.
 
-Los resultados por horizonte se publican en Pushgateway y se muestran en la fila F del [tablero](bi-ml-tablero.md).
+Los resultados por horizonte se publican en Pushgateway y se muestran en la fila F del [tablero](tableros.md).

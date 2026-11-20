@@ -1,27 +1,6 @@
-# S9 · Observabilidad y costos
+# 5. Costos y escalado
 
-Notebook: `pyspark/sesiones/u2/s09-observabilidad-pipeline/09_observabilidad_pipeline_grafana_costos.ipynb`.
-
-## Qué se mide
-
-- **Infraestructura (Kafka):** brokers visibles, `kafka_consumergroup_lag`, estado del exporter, vía `kafka-exporter` → Prometheus → Grafana.
-- **Aplicación (Spark):** throughput y latencia por evento (`latencyMs = processedAt − timestamp`), con `lastProgress`, y latencia agregada por ventana de un minuto.
-- **Negocio:** ratio de eventos válidos (solo se puede calcular con las reglas del dominio).
-
-## Alertas propuestas y umbrales
-
-| Situación | Regla | Justificación con datos medidos |
-|---|---|---|
-| Kafka no visible | `kafka_brokers < 1` | Valor sano medido: 1 |
-| Exporter caído | `up{job="kafka-exporter"} == 0` | Valor sano: 1 (target `UP`) |
-| Lag alto sostenido | `kafka_consumergroup_lag > 100` durante 2 min | Lag sano: 0 a 2. A 17-20 eventos por minuto, 100 equivale a ~5 min de atraso |
-| Latencia sensible | `avgLatencyMs > 4000` (por minuto) | Promedio sano: 2 573 ms; el mayor promedio por minuto fue 2 720 ms |
-| Latencia crítica | `avgLatencyMs > 6000` (por minuto) | Supera el trigger de 5 s y el máximo individual medido (4 892 ms; p99 4 863 ms) |
-
-!!! note "Por qué no se usaron los umbrales de la guía"
-    Los umbrales de 100 ms y 1000 ms de la guía del docente no se usaron: con 3 s de intervalo del productor y un trigger de 5 s, la latencia sana ya es de ~2 500 ms y esas alertas dispararían siempre.
-
-## Estimación de costos y plan de escalado
+## Estimación de costos con valores medidos
 
 | Variable | Valor medido | Supuesto |
 |---|---|---|
@@ -32,7 +11,7 @@ Notebook: `pyspark/sesiones/u2/s09-observabilidad-pipeline/09_observabilidad_pip
 | Costo de almacenamiento | US$ 0.05 al mes | S3 Standard a US$ 0.023 por GB al mes |
 | **Total estimado** | **US$ 91.16 al mes** | Sin tráfico de red ni mantenimiento |
 
-### Plan de escalado
+## Plan de escalado
 
 | Umbral de decisión | Dato que lo justifica | Acción |
 |---|---|---|
@@ -40,5 +19,7 @@ Notebook: `pyspark/sesiones/u2/s09-observabilidad-pipeline/09_observabilidad_pip
 | `inputRowsPerSecond` > 1 fila/s (mitad de la capacidad medida) | Spark procesó 2.3 filas/s con entrada de 0.2 filas/s: ~11 veces de holgura | Añadir más ciudades (más claves) y subir particiones y paralelismo antes de agregar máquinas |
 
 **Qué escalaría primero:** el consumidor de Spark, no el broker ni la escritura a Parquet. Hoy todo el tráfico va a una sola partición porque la `key` es siempre "Juliaca"; agregar particiones no ayuda mientras haya una sola clave.
+
+**Por qué no es lo mismo que el costo del batch de U1:** el batch corre y termina (se paga por tiempo de ejecución); el streaming corre 24 h al día, así que el cómputo es un costo fijo mensual y además hay crecimiento continuo del almacenamiento y de archivos pequeños.
 
 **Riesgo operativo:** el volumen (2.3 GB al mes) cuesta centavos, pero 720 archivos pequeños por hora (~17 mil al día) degradan las lecturas. Haría falta compactación periódica y una política de retención.

@@ -1,6 +1,12 @@
-# Sustentación de la Unidad II
+# 11. Sustentación
 
-Tiempos (S12): demo y sustentación 3 min, preguntas 3 min. Lo que se demuestra es el **indicador U2** propio, contrastado con el de U1.
+Esta página resume cómo se sustenta cada decisión del proyecto: qué se decidió, por qué, qué alternativa se descartó y cómo se verificó. Sirve como guía para la defensa oral y la demostración en vivo.
+
+Tiempos (S12): demo y sustentación 3 min, preguntas 3 min.
+
+## Qué se construyó, en una frase
+
+Un pipeline en tiempo real que toma lecturas reales de clima de Juliaca, las pasa por Kafka y Spark, las vigila con métricas, y las convierte en una predicción a 1 hora de **heladas** visible en un tablero de Grafana, midiendo además su propio error en vivo.
 
 ## Guion de la demo (7 pasos)
 
@@ -10,7 +16,7 @@ Tiempos (S12): demo y sustentación 3 min, preguntas 3 min. Lo que se demuestra 
 4. **Observabilidad y costos.** Fila C del tablero y S9: lag, latencia promedio frente a mediana, umbrales medidos, costo estimado de US$ 91.16 al mes.
 5. **Modelo y métricas.** S10: RandomForest frente a persistencia (RMSE 0.971 frente a 1.499 °C).
 6. **Tablero BI con KPIs y predicción juntos.** Grafana: filas A a D, y la prueba de que el valor cambia (consulta PromQL dos veces).
-7. **Una decisión propia distinta del ejemplo del docente.** Elegir una: umbrales de alerta medidos en lugar de los de la guía; comparar contra climatología además de persistencia; publicar el MAE en vivo calculado y no el de la prueba; filtrar eventos inválidos antes del modelo.
+7. **Una decisión propia distinta del ejemplo del docente.** Umbrales de alerta medidos, comparación contra climatología además de persistencia, o MAE en vivo calculado en lugar del de la prueba.
 
 ## Prueba en vivo de que los datos vienen de Kafka
 
@@ -19,10 +25,24 @@ Tiempos (S12): demo y sustentación 3 min, preguntas 3 min. Lo que se demuestra 
 3. En el notebook de S11, ver los micro-lotes imprimiéndose ("Micro-lote N: 1 predicción(es) guardadas y publicadas").
 4. Opcional: publicar un evento nuevo y ver su predicción en el Parquet en ~6 s (S10, paso 14).
 
-## Preguntas de referencia y respuestas
+## Decisiones y su justificación
+
+| Decisión | Por qué | Alternativa descartada | Cómo se verificó |
+|---|---|---|---|
+| Fuente: WeatherAPI con lecturas reales de Juliaca | Es una fuente real equivalente a un sensor, de la zona del proyecto | Datos simulados | Valores físicamente coherentes; histórico de 146 832 horas sin nulos ni huecos |
+| Dos marcas de tiempo (`observadoEn`, `timestamp`) | La API actualiza cada ~15 min y el productor publica más seguido | Una sola marca de tiempo | Lecturas repetidas detectadas y deduplicadas; latencia medida con `timestamp` |
+| Key = ciudad, 3 particiones | Mantiene el orden de las lecturas de una ciudad | Sin key (reparto aleatorio) | Kafka UI: todo el tráfico en una partición |
+| Filtrar eventos inválidos antes del modelo | Un nulo o 4 500 °C rompe el `VectorAssembler` o distorsiona la predicción | Dejar que el modelo falle | Eventos de prueba descartados; el streaming no se cae |
+| Partición cronológica 80/20 | En series de tiempo mezclar futuro con pasado da métricas optimistas | `randomSplit` | 0 horas en ambos conjuntos (verificado con `intersect`) |
+| Baseline de persistencia y de climatología | Un modelo solo vale si supera la respuesta trivial | Reportar solo el error del modelo | RandomForest −35 % de RMSE a 1 h; a 12 h solo iguala a la climatología |
+| Umbrales de alerta medidos, no genéricos | Los de la guía dispararían siempre | Umbrales de ejemplo | Tabla de umbrales con el dato medido que cada uno usa |
+| Pushgateway para KPIs y predicción | El job de Spark no termina ni expone `/metrics` | Que Spark exponga `/metrics` | Valor que cambia entre dos consultas; se documenta el riesgo de valor congelado |
+| `POST` en lugar de `PUT` para el MAE en vivo | `PUT` borraría el grupo completo | Reenviar todas las métricas | F1 de la prueba intacto tras publicar |
+
+## Preguntas esperadas y respuestas
 
 ??? question "¿Por qué el modelo se compara primero contra la persistencia, y qué significaría que no le gane?"
-    Porque es la referencia más simple ("la próxima hora será igual que ahora") y un modelo solo vale si la mejora. Aquí el RandomForest reduce el RMSE un 35 % (1.499 → 0.971 °C). Si no le ganara, el modelo no justificaría su complejidad: bastaría repetir la última lectura. En las primeras 7 horas en vivo la persistencia sí ganó (0.886 frente a 1.217 °C), lo que obliga a seguir midiendo en producción antes de afirmar nada.
+    Porque es la referencia más simple ("la próxima hora será igual que ahora") y un modelo solo vale si la mejora. Aquí el RandomForest reduce el RMSE un 35 % (1.499 → 0.971 °C). Si no le ganara, no justificaría su complejidad: bastaría repetir la última lectura. En las primeras 7 horas en vivo la persistencia sí ganó (0.886 frente a 1.217 °C), lo que obliga a seguir midiendo en producción antes de afirmar nada.
 
 ??? question "¿Qué diferencia hay entre un KPI de negocio y una métrica de infraestructura o de aplicación?"
     Infraestructura: cómo está el sistema (lag del consumidor, brokers). Aplicación: cómo se comporta el código (latencia por evento, throughput). Negocio: si el resultado sirve para decidir; por ejemplo el **ratio de eventos válidos**, que solo se calcula con las reglas del dominio (temperatura en rango, campos completos), o el recall de heladas.
@@ -43,13 +63,8 @@ Tiempos (S12): demo y sustentación 3 min, preguntas 3 min. Lo que se demuestra 
     Permite leer el riesgo y la confianza al mismo tiempo: la predicción a 1 h junto al error del modelo, la edad del último dato y el estado del pipeline. Una alerta de helada sin saber si el pipeline está retrasado o si el modelo suele fallar de noche no se puede usar para decidir.
 
 ??? question "¿Hasta cuántas horas se puede predecir?"
-    Con las variables que llegan por Kafka, hay ventaja real sobre la persistencia y la climatología hasta unas **3-4 horas** (RMSE 0.98 – 1.75 °C frente a 1.85 °C). Desde las 5 h el error iguala al de la climatología; la alerta tiene F1 ≥ 0.6 solo hasta 3 h y desde las 10 h no emite alertas. Ver [S11b](unidad2/multihorizonte.md).
+    Con las variables que llegan por Kafka, hay ventaja real sobre la persistencia y la climatología hasta unas **3-4 horas** (RMSE 0.98 – 1.75 °C frente a 1.85 °C). Desde las 5 h el error iguala al de la climatología; la alerta tiene F1 ≥ 0.6 solo hasta 3 h y desde las 10 h no emite alertas. Ver [9. ¿Hasta cuántas horas?](multihorizonte.md).
 
 ## Limitaciones que debo declarar
 
-- Frecuencia horaria en el histórico; en streaming llegan lecturas cada 15 minutos que repiten valores.
-- Una sola ciudad: todo el tráfico va a una partición.
-- Recall de la alerta a 1 h: 0.684 (se escapa el 31.6 % de las heladas).
-- Validación en vivo de solo 7 horas de una noche; no concluyente.
-- El umbral de aviso de U1 (0.75 °C) se eligió sobre el conjunto de prueba.
-- Predicción más allá de ~4 h equivalente a la climatología por hora y mes.
+Ver la lista completa en [10. Hallazgos y reflexión](hallazgos.md#limitaciones).

@@ -1,5 +1,5 @@
-site_name: Proyecto Sello · Heladas en Juliaca
-site_description: Pipeline Big Data (arquitectura Lambda) para anticipar heladas en Juliaca. Equipo 10 BIG IMPACT, Big Data UPeU 2026-2.
+site_name: Proyecto Sello
+site_description: Brief Técnico Analítico — Anticipación de heladas en Juliaca
 site_author: Salcca Aquino, Nilver
 repo_url: https://github.com/nilver987/big_data_proyecto-sello
 repo_name: nilver987/big_data_proyecto-sello
@@ -10,17 +10,20 @@ theme:
   language: es
   palette:
     - scheme: default
-      primary: indigo
+      primary: custom
       accent: teal
       toggle:
         icon: material/weather-night
         name: Cambiar a modo oscuro
     - scheme: slate
-      primary: indigo
+      primary: custom
       accent: teal
       toggle:
         icon: material/weather-sunny
         name: Cambiar a modo claro
+  font:
+    text: Inter
+    code: Roboto Mono
   icon:
     logo: material/snowflake
     repo: fontawesome/brands/github
@@ -29,6 +32,7 @@ theme:
     - navigation.sections
     - navigation.top
     - navigation.indexes
+    - toc.integrate
     - content.code.copy
     - content.tabs.link
 
@@ -37,39 +41,41 @@ extra_css:
 
 markdown_extensions:
   - admonition
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
-  - pymdownx.tabbed:
-      alternate_style: true
   - pymdownx.details
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
   - tables
   - attr_list
   - md_in_html
   - toc:
-      permalink: true
+      permalink: "#"
       toc_depth: 3
-
-plugins:
-  - search
 
 nav:
   - Inicio: index.md
-  - Proyecto:
-      - Dominio y arquitectura: proyecto/arquitectura.md
-      - Unidad I (batch): proyecto/unidad1.md
-  - Unidad II:
-      - Resumen y rúbrica: unidad2/index.md
-      - "S6-S7 · Ingesta con Kafka": unidad2/ingesta-kafka.md
-      - "S8 · Streaming con Spark": unidad2/streaming-spark.md
-      - "S9 · Observabilidad y costos": unidad2/observabilidad-costos.md
-      - "S10 · Series de tiempo": unidad2/series-tiempo.md
-      - "S11 · BI/ML y tablero": unidad2/bi-ml-tablero.md
-      - "S11b · ¿Hasta cuántas horas?": unidad2/multihorizonte.md
-  - Evidencias: evidencias.md
-  - Sustentación: sustentacion.md
+  - Datos del equipo: equipo.md
+  - Dominio del proyecto: dominio.md
+  - Dimensión de análisis:
+      - Tabla de asignación: dimensiones/asignacion.md
+      - "❄️ Heladas": dimensiones/heladas.md
+  - Alcance del proyecto: alcance.md
+  - Resultados técnicos:
+      - "❄️ Heladas · Unidad I": resultados/heladas/01_heladas_nilver.md
+  - Unidad 2:
+      - Resumen: unidad2/index.md
+      - "1. Arquitectura y contrato": unidad2/arquitectura.md
+      - "2. Ingesta con Kafka": unidad2/ingesta-kafka.md
+      - "3. Streaming con Spark": unidad2/streaming-spark.md
+      - "4. Observabilidad y alertas": unidad2/observabilidad.md
+      - "5. Costos y escalado": unidad2/costos-escalado.md
+      - "6. BI/ML en Grafana": unidad2/bi-ml.md
+      - "7. Tableros de Grafana": unidad2/tableros.md
+      - "8. Series de tiempo": unidad2/series-tiempo.md
+      - "9. ¿Hasta cuántas horas?": unidad2/multihorizonte.md
+      - "10. Hallazgos y reflexión": unidad2/hallazgos.md
+      - "11. Sustentación": unidad2/sustentacion.md
