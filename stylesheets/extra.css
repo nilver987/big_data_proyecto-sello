@@ -1,0 +1,44 @@
+:root {
+  --md-primary-fg-color: #1f3a93;
+  --md-primary-fg-color--light: #3f5fc4;
+  --md-primary-fg-color--dark: #14275f;
+  --md-accent-fg-color: #00a8a8;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #1a2a5e;
+  --md-default-bg-color: #11141c;
+}
+
+/* Portada */
+.hero {
+  padding: 1.6rem 1.8rem;
+  border-radius: 14px;
+  margin: 0.4rem 0 1.6rem 0;
+  color: #fff;
+  background: linear-gradient(135deg, #14275f 0%, #1f3a93 55%, #0e7c86 100%);
+}
+.hero h1 { color: #fff; margin: 0 0 0.3rem 0; font-size: 1.9rem; }
+.hero p { margin: 0.15rem 0; opacity: 0.95; }
+.hero .meta { font-size: 0.85rem; opacity: 0.8; margin-top: 0.7rem; }
+
+/* Tarjetas de resultados */
+.grid.cards > ul > li, .grid.cards > ol > li {
+  border-radius: 12px;
+}
+.cifra {
+  font-size: 1.9rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--md-accent-fg-color);
+  margin: 0;
+}
+
+/* Tablas y figuras */
+.md-typeset table:not([class]) { font-size: 0.78rem; }
+.md-typeset figure { margin: 1.1rem auto; }
+.md-typeset figcaption { font-size: 0.78rem; opacity: 0.85; }
+.md-typeset img { border-radius: 8px; border: 1px solid rgba(128,128,128,0.25); }
+
+/* Pie de pantalla de captura */
+.evidencia { font-size: 0.8rem; opacity: 0.8; }
