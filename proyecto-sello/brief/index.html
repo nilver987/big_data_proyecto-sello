@@ -1,0 +1,1691 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://262bigdata.github.io/lambda26/proyecto-sello/brief/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../u1-producto/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
+    
+    
+  
+    <title>Big Data - Brief técnico-analítico (plantilla)</title>
+  
+
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#brief-tecnico-analitico-del-proyecto-sello" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Big Data" class="md-header__button md-logo" aria-label="Big Data" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Big Data
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Brief técnico-analítico (plantilla)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/262bigdata/lambda26" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    262bigdata/lambda26
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Big Data" class="md-nav__button md-logo" aria-label="Big Data" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Big Data
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/262bigdata/lambda26" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    262bigdata/lambda26
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guía de Proyecto Sello
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guía de Proyecto Sello
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guía del proyecto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Brief técnico-analítico (plantilla)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Brief técnico-analítico (plantilla)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-datos-del-equipo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Datos del equipo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-dominio-del-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Dominio del proyecto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-dimensiones-de-analisis-y-fuentes-previstas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Dimensiones de análisis y fuentes previstas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Dimensiones de análisis y fuentes previstas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dimension-______-integrante-______" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dimensión: ______ (integrante: ______)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-aprobacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Aprobación
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u1-producto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Producto U1 (plantilla-ejemplo)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u2-producto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Producto U2 (plantilla-ejemplo)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../u3-producto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Producto U3 / Producto Final (plantilla-ejemplo)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../matriz-competencias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Matriz de competencias (ICACIT)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Silabos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Silabos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../silabo_bigdata_2026_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Silabo 2026-1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../silabo_bigdata_2026_2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Silabo 2026-2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Arquitecturas Big Data y ETL batch distribuido
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1. Arquitecturas Big Data y ETL batch distribuido
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sesiones/S01_Arquitectura_Big_Data_Lambda_Kappa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S1 - Arquitectura Big Data: Lambda y Kappa, batch vs. streaming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sesiones/S02_Fundamentos_PySpark_Transformaciones_Lazy_Evaluation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S2 - Fundamentos PySpark: transformaciones, funciones, agrupaciones y evaluación perezosa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sesiones/S03_Procesamiento_Calidad_Datos_Particionamiento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S3 - Procesamiento y Calidad de Datos: filtrado, duplicados, nulos y particionamiento analítico
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sesiones/S04_ML_Distribuido_Regresion_Spark_MLlib/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S4 - ML Distribuido con Spark MLlib (Regresión)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sesiones/S05_Evaluacion_Unidad_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S5 - Evaluación de la Unidad I
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Sistema Big Data en tiempo real
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    2. Sistema Big Data en tiempo real
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sesiones/S06_Ingesta_Eventos_Empresariales_Kafka/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S6 - Ingesta de Eventos Empresariales en Tiempo Real
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sesiones/S07_Ingesta_Eventos_IoT_Sensores_Tiempo_Real/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S7 - Ingesta de Eventos IoT/Sensores en Tiempo Real
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sesiones/S08_Procesamiento_Streaming_Spark_Ventanas_Watermarking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S8 - Procesamiento en Streaming con Spark
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sesiones/S09_Observabilidad_Pipeline_Grafana_Costos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S9 - Observabilidad con Grafana y Costos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sesiones/S10_Series_Tiempo_Inferencia_Streaming_MLlib/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S10 - Series de Tiempo e Inferencia en Streaming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sesiones/S11_BI_ML_Distribuido_Spark_Grafana/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S11 - BI/ML Distribuido con Spark
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sesiones/S12_Evaluacion_Unidad_2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S12 - Evaluación de la Unidad II
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Integración, DataOps y despliegue del sistema final
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    3. Integración, DataOps y despliegue del sistema final
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sesiones/S13_Integracion_Sistema_DataOps_BI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S13 - Integración del sistema, DataOps y BI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sesiones/S14_Revision_Tecnica_Hardening/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S14 - Revisión técnica final y hardening
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sesiones/S15_Evaluacion_Unidad_3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S15 - Evaluación de la Unidad III
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sesiones/S16_Continuacion_Evaluacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S16 - Continuación de la evaluación de la Unidad III
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-datos-del-equipo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Datos del equipo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-dominio-del-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Dominio del proyecto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-dimensiones-de-analisis-y-fuentes-previstas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Dimensiones de análisis y fuentes previstas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Dimensiones de análisis y fuentes previstas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dimension-______-integrante-______" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dimensión: ______ (integrante: ______)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-aprobacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Aprobación
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="brief-tecnico-analitico-del-proyecto-sello">Brief Técnico-Analítico del Proyecto Sello<a class="headerlink" href="#brief-tecnico-analitico-del-proyecto-sello" title="Permanent link">&para;</a></h1>
+<p>Este documento es el hito de <strong>S2</strong> del cronograma (ver <a href="../">Guía del Proyecto Sello</a>, sección 4): el punto donde el equipo declara, por escrito, qué sistema Big Data va a construir durante el ciclo — antes de avanzar a S3 (calidad de datos y formatos analíticos). No reemplaza el informe final; es la ficha corta que fija el rumbo desde el principio.</p>
+<p><code>lambda26</code> es un entorno integrado de procesamiento distribuido en batch y streaming con Spark y Kafka. Las guías de S1 en adelante muestran <strong>cómo</strong> se construye cada capacidad (arquitectura Lambda/Kappa, ETL batch, ingesta y streaming, observabilidad, BI/ML, DataOps) sobre un caso de referencia (ver el caso de Uber en S1, 1.6). Tu equipo <strong>aplica ese mismo patrón</strong> sobre <strong>su propio problema de datos</strong> — no necesariamente sobre el mismo caso de <code>lambda26</code>, ni con las mismas fuentes. El repositorio se identifica con su propio <code>grupo-&lt;numero&gt;-&lt;nombre-proyecto&gt;</code> en los topics (ver <a href="../">Guía del Proyecto Sello</a>, sección 5).</p>
+<p>Cada equipo llena una sola copia de este brief, la publica en su repositorio (o en su MkDocs) y la actualiza solo si el alcance cambia de verdad — no en cada sesión.</p>
+<h2 id="1-datos-del-equipo">1. Datos del equipo<a class="headerlink" href="#1-datos-del-equipo" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Nombre del equipo:</li>
+<li>Sección:</li>
+<li>Repositorio (URL):</li>
+<li>Topics del repositorio configurados (sí/no) — incluye <code>grupo-&lt;numero&gt;-&lt;nombre-proyecto&gt;</code> (ver <a href="../">Guía del Proyecto Sello</a>, sección 5):</li>
+</ul>
+<p><strong>Integrantes:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Integrante</th>
+<th>Rol o énfasis previsto (ej. batch/Spark, streaming/Kafka, observabilidad, BI/ML)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Este rol es un <strong>énfasis de coordinación a nivel de equipo</strong> (quién profundiza más en X aspecto compartido, como la observabilidad común o el empaquetado DataOps), no un reemplazo del trabajo individual: cada integrante igual construye de extremo a extremo su dimensión, medida con sus dos indicadores — U1 y U2 (sección 3) —, sin importar el rol que tenga aquí.</p>
+<h2 id="2-dominio-del-proyecto">2. Dominio del proyecto<a class="headerlink" href="#2-dominio-del-proyecto" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Nombre del proyecto:</li>
+<li>Problema o necesidad que resuelve (2-4 líneas):</li>
+<li>Dominio de datos (breve — sector o rubro, ej. logística, salud, retail, IoT industrial, finanzas, y qué se mide o registra):</li>
+<li><strong>Variable de interés</strong> — el concepto que contiene la pregunta central (ej. «operación logística», «riesgo eléctrico atmosférico»):</li>
+<li><strong>Pregunta central de negocio</strong> que responde el sistema completo (1-2 líneas, redactada como pregunta — ej. "¿cómo optimizar la operación logística de reparto de la empresa X?"). Es el hilo conductor único del proyecto: en la sección 3, la variable se <strong>dimensiona</strong> en sus componentes medibles; cada integrante no trae su propia pregunta independiente, toma una <strong>dimensión</strong> de esa variable y la mide con <strong>dos indicadores</strong> (U1 batch y U2 streaming), y todas convergen en un solo tablero/historia final, no en tableros sueltos:</li>
+<li>Usuarios / actores principales (quién consume las salidas del sistema — analista, gerente, otro sistema automatizado, etc.):</li>
+<li>Arquitectura Big Data prevista — Lambda o Kappa, y por qué (justificación breve, criterio de decisión en S1, 2.5.1):</li>
+<li>Fuente de datos batch (dataset real o realista — público, de datos abiertos de gobierno, o real de una organización; no completamente inventado sin fundamento). Indica cuál y de dónde:</li>
+<li>Fuente de eventos en tiempo real (empresariales y/o IoT/sensores; puede ser simulada de forma realista — a diferencia del dataset batch, aquí sí es aceptable simular, como hace <code>lambda26</code> con sensores). Indica cuál:</li>
+</ul>
+<p>La fuente batch y la fuente streaming <strong>no tienen que ser datasets distintos</strong> — pueden ser el mismo sensor u origen, visto en dos momentos: streaming es la lectura en vivo, tal como llega (ej. un sensor atmosférico publicando cada pocos segundos su campo eléctrico, campo magnético, temperatura, humedad, viento, lluvia); batch es la acumulación histórica de esas mismas lecturas, procesada después en bloque con Spark (limpieza, agregación diaria/mensual, formato analítico). Esto es, de hecho, el patrón típico de arquitectura Lambda: una sola fuente alimentando la capa de velocidad (streaming) y la capa batch a la vez.</p>
+<ul>
+<li>¿Continúa un proyecto de un ciclo anterior, o es un dominio nuevo? Puede ser un proyecto propio del equipo, o el de <strong>otro grupo</strong> que ya llevó Big Data en un ciclo anterior, si es pertinente darle continuidad. Si continúa, indicar cuál y de qué equipo/ciclo:</li>
+</ul>
+<h2 id="3-dimensiones-de-analisis-y-fuentes-previstas">3. Dimensiones de análisis y fuentes previstas<a class="headerlink" href="#3-dimensiones-de-analisis-y-fuentes-previstas" title="Permanent link">&para;</a></h2>
+<p><strong>Regla de asignación:</strong> la variable de interés declarada en la sección 2 se <strong>dimensiona</strong>: se descompone en sus componentes medibles. Cada integrante propone (o hereda) <strong>una dimensión</strong> y la mide con <strong>dos indicadores</strong>: uno <strong>batch (U1)</strong> y uno <strong>streaming (U2)</strong>. Todas las dimensiones del equipo deben converger en <strong>un solo tablero o historia final</strong> — no en tableros sueltos por integrante. Esto evita lo que el Proyecto Sello marca como inválido: "notebooks o jobs Spark aislados sin un flujo de datos común".</p>
+<p>Esta estructura es la misma <strong>matriz de operacionalización de variables</strong> de metodología de la investigación, aplicada al proyecto: la pregunta central contiene la <strong>variable</strong> de interés (ej. «operación logística», «riesgo eléctrico atmosférico»); la variable se divide en <strong>dimensiones</strong>, sus componentes (en el ejemplo atmosférico: campo eléctrico, campo magnético, temperatura, viento, humedad y presión); cada dimensión se mide con <strong>indicadores</strong> (la métrica concreta, la que termina siendo el KPI; aquí, uno batch y uno streaming); y cada indicador se recoge con un <strong>instrumento</strong> — que aquí es, literalmente, la fuente batch o streaming de la ficha (el sensor, el evento, el dataset).</p>
+<p>Siguiendo el sílabo tal cual está organizado por unidad, <strong>los dos indicadores son descriptivo/diagnóstico + predictivo</strong> — ninguno se queda solo en lo descriptivo. Lo que los distingue no es si predicen o no, es si esa predicción corre <strong>en tiempo real</strong>:</p>
+<ul>
+<li><strong>Indicador U1 — descriptivo/diagnóstico + predictivo, sin inferencia en tiempo real</strong> (¿qué pasó?, ¿cómo se compara?, y también ¿qué se puede esperar, en general?): se responde con <strong>batch</strong> — histórico, para describir el pasado y, sobre ese mismo histórico, entrenar un modelo predictivo (regresión, como en S4; una clasificación sigue la plantilla de referencia del curso). La predicción existe, pero es una foto fija: se calcula al correr el pipeline, no se actualiza dato por dato ni reacciona a lo que llega después. Se reporta dentro del propio <strong>notebook Jupyter/PySpark</strong> donde corre el pipeline (tablas, gráficos con pandas/matplotlib, la predicción del modelo incluida) — es el medio ya establecido para esta unidad (S1-S4), no hace falta llevarla a Grafana.</li>
+<li><strong>Indicador U2 — descriptivo/diagnóstico + predictivo, con inferencia de series de tiempo en tiempo real</strong> (¿qué está pasando ahora?, y además ¿qué va a pasar?, ¿cuándo?): se responde con <strong>streaming</strong> — el indicador describe el estado en vivo, dato por dato (equivalente a la ingesta de eventos empresariales/IoT en <code>lambda26</code>, S6-S9), y sobre ese mismo flujo corre el modelo de series de tiempo: hay que <strong>entrenarlo y dejarlo corriendo en Spark Structured Streaming</strong>, aplicando la inferencia a cada dato que llega — la predicción se actualiza en vivo, junto con el indicador, no es una foto fija. Se reporta en vivo en <strong>Grafana</strong> — indicador y predicción actualizándose juntos, dato por dato; si el caso lo amerita, incluye alertas (ej. temperatura fuera de un rango normal).</li>
+</ul>
+<p>Ambos indicadores miden la <strong>misma dimensión</strong> y pueden venir del <strong>mismo origen físico</strong> (ver sección 2) — ej. un sensor atmosférico: U2 usa la lectura en vivo del campo eléctrico, tal como llega, y U1 usa la acumulación histórica de esas mismas lecturas, procesada por lotes. No es obligatorio que sean fuentes distintas — sí es obligatorio que el tratamiento (streaming vs. batch, y con o sin inferencia en tiempo real) sea real y distinto entre las dos.</p>
+<p>Esto es, <strong>a nivel de cada integrante</strong> (el curso evalúa <a href="../#subaspectos-de-la-sustentacion-integral">aporte individual</a> — subaspecto 4 de la sustentación integral —, con evidencia de U1 y U2 por separado según el <a href="../#alineamiento-por-sesiones">alineamiento por sesiones</a>), lo que garantiza que todos, sin excepción, construyan y defiendan ambas capas del curso — no solo que "alguien del equipo" haya tocado streaming.</p>
+<p><strong>Ejemplo de una variable dimensionada</strong> (pregunta central: "¿cómo optimizar la operación logística de reparto de la empresa X?"; variable: operación logística):</p>
+<table>
+<thead>
+<tr>
+<th>Integrante</th>
+<th>Dimensión</th>
+<th>Indicador U1 (batch)</th>
+<th>Indicador U2 (streaming)</th>
+<th>Fuente/instrumento batch (U1)</th>
+<th>Fuente/instrumento streaming (U2)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>Tiempo de entrega</td>
+<td>Minutos promedio por zona y por día; minutos esperados por un modelo de regresión (distancia, franja horaria)</td>
+<td>Minutos de entrega proyectados por zona para el siguiente intervalo</td>
+<td>Histórico de tiempos de entrega por zona</td>
+<td>Eventos de entrega en vivo</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Cumplimiento de la ruta</td>
+<td>% de desvío por unidad y por semana; desvío esperado por un modelo de regresión sobre el histórico</td>
+<td>Desvío proyectado de cada unidad en el siguiente intervalo, según su trayectoria</td>
+<td>Histórico de recorridos vs. rutas planificadas</td>
+<td>Ubicaciones y velocidad GPS en vivo</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Demanda de pedidos</td>
+<td>Pedidos por zona y por día; pedidos esperados del día siguiente, por un modelo de regresión</td>
+<td>Pedidos proyectados por zona para el siguiente intervalo</td>
+<td>Histórico de pedidos por zona</td>
+<td>Pedidos en vivo</td>
+</tr>
+</tbody>
+</table>
+<p>Tres dimensiones, tres integrantes, todas componentes de la <strong>misma</strong> operación logística — juntas arman un solo tablero de "salud de la operación de reparto", no proyectos sueltos. Cada integrante mide su dimensión con dos indicadores: uno batch sin tiempo real (U1) y uno con tiempo real (U2).</p>
+<p><strong>Otro ejemplo, con sensores atmosféricos</strong> (pregunta central: "¿cómo anticipar condiciones climáticas de riesgo en la zona monitoreada?"; variable: condiciones climáticas de riesgo):</p>
+<table>
+<thead>
+<tr>
+<th>Integrante</th>
+<th>Dimensión</th>
+<th>Indicador U1 (batch)</th>
+<th>Indicador U2 (streaming)</th>
+<th>Fuente/instrumento batch (U1)</th>
+<th>Fuente/instrumento streaming (U2)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>Temperatura</td>
+<td>Temperatura mín./máx. por día, en °C; temperatura esperada del día siguiente, por un modelo de regresión sobre el histórico diario</td>
+<td>Temperatura proyectada en el siguiente intervalo de lectura, con alerta si cruza el umbral (helada o calor extremo)</td>
+<td>Histórico de temperatura de la estación</td>
+<td>Lecturas en vivo del sensor de temperatura</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Campo eléctrico</td>
+<td>% de lecturas fuera de su rango de referencia, por día; campo eléctrico esperado según las condiciones ambientales (regresión)</td>
+<td>Campo eléctrico proyectado en el próximo minuto, con alerta si se acerca al umbral de riesgo</td>
+<td>Histórico de campo eléctrico y de variables ambientales</td>
+<td>Lecturas en vivo del campo eléctrico</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Lluvia</td>
+<td>Milímetros acumulados por día y su tendencia; acumulado esperado del día siguiente (regresión)</td>
+<td>Milímetros proyectados en el siguiente intervalo, con alerta por acumulación</td>
+<td>Histórico de precipitación</td>
+<td>Lecturas de lluvia en vivo</td>
+</tr>
+</tbody>
+</table>
+<p>Dos precisiones sobre estos ejemplos. El <strong>rango de referencia</strong> del indicador U1 de la dimensión B se define con un periodo de referencia (por ejemplo, los primeros días del histórico) y se aplica al resto: si se calculara sobre todo el histórico, el porcentaje fuera de rango saldría casi fijo por definición y no informaría nada. Y el <strong>horizonte</strong> del indicador U2 es el siguiente intervalo de lectura — lo que S10 entrena y valida —; un pronóstico más largo es una extensión, no el requisito.</p>
+<p>Aquí las dimensiones pueden salir del <strong>mismo sensor físico</strong> (distintas magnitudes que mide a la vez) — lo que las conecta no es el sensor, es que todas componen la misma variable: las condiciones climáticas de riesgo de la zona, visibles en un solo tablero con paneles de temperatura, campo eléctrico, lluvia y su pronóstico.</p>
+<p><strong>Tabla de asignación:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Integrante</th>
+<th>Dimensión</th>
+<th>Indicador U1 (batch)</th>
+<th>Indicador U2 (streaming)</th>
+<th>Fuente/instrumento batch (U1)</th>
+<th>Fuente/instrumento streaming (U2)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Cada integrante ocupa <strong>una fila</strong>: su dimensión, medida con un indicador batch (U1) y uno streaming (U2). Un grupo de tres o cuatro integrantes cubre tres o cuatro dimensiones de la misma variable.</p>
+<p>En ninguno de los dos indicadores alcanza con la métrica sola — el modelo predictivo (visto arriba) es obligatorio en ambos. Los paneles de <strong>todos</strong> los indicadores U2 del equipo se muestran en el <strong>mismo Grafana</strong>, no en instancias separadas por integrante — el resultado visible en tiempo real del proyecto es un solo tablero con varios paneles, uno por dimensión; los indicadores U1 se documentan en sus respectivos notebooks.</p>
+<p><strong>Ficha por dimensión</strong> — completa un bloque como este por cada integrante (un bloque por dimensión):</p>
+<h3 id="dimension-______-integrante-______">Dimensión: ______ (integrante: ______)<a class="headerlink" href="#dimension-______-integrante-______" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Dimensión (componente de la variable) y cómo se relaciona con la pregunta central de la sección 2:</li>
+<li>Decisión o acción que habilita (qué hace alguien distinto gracias a esta dimensión):</li>
+<li><strong>Indicador U1 (batch, sin tiempo real)</strong> — pregunta que responde (1-2 líneas), métrica concreta (la que se convierte en KPI) y valor que entrega el modelo predictivo:</li>
+<li>Modelo predictivo U1 — tipo (regresión o clasificación) y que corre una sola vez:</li>
+<li>Instrumento/fuente batch — descripción, esquema (campos/columnas clave) y origen (dataset público/URL, API, exporte periódico, etc.):</li>
+<li>Salida U1 — cómo se reporta en el notebook (tablas/gráficos, predicción incluida):</li>
+<li><strong>Indicador U2 (streaming, con tiempo real)</strong> — pregunta que responde, métrica y horizonte del pronóstico (el siguiente intervalo de lectura es suficiente):</li>
+<li>Modelo predictivo U2 — modelo de series de tiempo, comparado contra la persistencia, que corre en vivo sobre el flujo:</li>
+<li>Instrumento/fuente streaming — descripción, esquema y origen (tópico Kafka, sensor simulado, evento de negocio, etc.); si tu histórico es la acumulación del mismo streaming que usa tu indicador U2, indícalo igual aquí (mismo instrumento, solo que en U1 no se procesa en vivo):</li>
+<li>Salida U2 — el panel del indicador y de la predicción en el Grafana común, ambos en vivo:</li>
+<li>¿Con qué otra(s) dimensión(es) del equipo se combina en el tablero final? (todas deben aportar a la misma historia, no quedar sueltas). Si todavía no lo sabes, escribe "por definir".</li>
+<li>Lista inicial de requisitos (mínimo 3, redactados como "el sistema debe..."):
+    1.
+    2.
+    3.</li>
+</ul>
+<p><em>(repite este bloque por cada integrante del equipo)</em></p>
+<ul>
+<li>Qué SÍ cubre este proyecto en conjunto:</li>
+<li>Qué NO cubre — fuera de alcance, explícito:</li>
+</ul>
+<p><strong>Pendiente para las siguientes sesiones:</strong> la infraestructura compartida (Spark, Kafka, almacenamiento analítico, observabilidad con Grafana <strong>y estimación de costos operacionales</strong>, prácticas de DataOps) sigue el mismo patrón que enseña cada sesión sobre <code>lambda26</code> (S8-S9) — no se declara aquí porque aplica igual sin importar el dominio de cada equipo; se construye en clase, sesión por sesión, sobre las dimensiones y fuentes de esta ficha.</p>
+<h2 id="4-aprobacion">4. Aprobación<a class="headerlink" href="#4-aprobacion" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Docente:</li>
+<li>Fecha:</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "content.code.copy"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+    
+  </body>
+</html>
